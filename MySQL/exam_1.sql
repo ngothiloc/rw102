@@ -82,7 +82,7 @@ CREATE TABLE group_account (
 
 CREATE TABLE type_question (
 	type_id				INT AUTO_INCREMENT UNIQUE,
-    type_name			Enum('Essay','Multiple-Choice')
+    type_name			ENUM('Essay','Multiple-Choice')
 );
 
 -- Table 7: CategoryQuestion  
@@ -118,8 +118,8 @@ CREATE TABLE question (
 
 CREATE TABLE answer (
 	answer_id			INT AUTO_INCREMENT UNIQUE,
-    content				text,
-    question_id			int,
+    content				TEXT,
+    question_id			INT,
     isCorrect			ENUM('Đúng','Sai')
 );
 
