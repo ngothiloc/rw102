@@ -133,7 +133,7 @@ CREATE TABLE answer (
 -- CreateDate: ngày tạo đề thi 
 
 CREATE TABLE exam (
-	exam_id				INT auto_increment unique,
+	exam_id				INT AUTO_INCREMENT UNIQUE,
     code				INT,
     title				TEXT,
     category_id			INT,
