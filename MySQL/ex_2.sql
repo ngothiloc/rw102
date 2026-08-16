@@ -159,7 +159,9 @@ CREATE TABLE exam_question (
     CONSTRAINT fk_exam_question_question FOREIGN KEY (question_id) REFERENCES question(question_id)
 );
 
--- ===== INSERT IN ======
+
+-- ============================ INSERT INTO ==================================
+
 
 -- Table 1:Department  
 INSERT INTO department (department_name)
