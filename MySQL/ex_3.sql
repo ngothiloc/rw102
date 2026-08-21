@@ -3,6 +3,9 @@
 -- Default: khi không truyền giá trị vào cột đó thì sẽ lấy giá trị ở default làm giá trị
 -- NOT NULL: cột đó phải có giá trị
 -- Check: kiểm tra giá trị có hợp lệ không
+DROP DATABASE IF EXISTS rw_102;
+
+CREATE DATABASE rw_102;
 
 USE rw_102;
 
@@ -107,7 +110,7 @@ CREATE TABLE question (
     type_id				INT UNSIGNED NOT NULL,
     creator_id			INT UNSIGNED NOT NULL,
     create_date			DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_question_category FOREIGN KEY (category_id) REFERENCES type_question(type_id),
+    CONSTRAINT fk_question_category FOREIGN KEY (category_id) REFERENCES category_question(category_id),
     CONSTRAINT fk_question_type FOREIGN KEY (type_id) REFERENCES type_question(type_id),
     CONSTRAINT fk_question_creator FOREIGN KEY (creator_id) REFERENCES account(account_id)
 );
@@ -123,7 +126,7 @@ CREATE TABLE answer (
     content				TEXT NOT NULL,
     question_id			INT UNSIGNED NOT NULL,
     isCorrect			BOOLEAN NOT NULL DEFAULT FALSE,
-     CONSTRAINT fk_answer_question FOREIGN KEY (question_id) REFERENCES question(question_id)
+	CONSTRAINT fk_answer_question FOREIGN KEY (question_id) REFERENCES question(question_id)
 );
 
 -- Table 10: Exam  
@@ -142,7 +145,7 @@ CREATE TABLE exam (
     category_id			INT UNSIGNED NOT NULL,
     duration			SMALLINT UNSIGNED NOT NULL,
     creator_id			INT UNSIGNED NOT NULL,
-    category_date		DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    create_date		DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_exam_category FOREIGN KEY (category_id) REFERENCES category_question(category_id),
     CONSTRAINT fk_exam_creator FOREIGN KEY (creator_id) REFERENCES account(account_id)
 );
@@ -170,12 +173,7 @@ VALUES
     ('Sale'),
     ('Bảo vệ'),
     ('Nhân sự'),
-    ('Kỹ thuật'),
-    ('Tài chính'),
-    ('Phó giám đốc'),
-    ('Giám đốc'),
-    ('Thư kí'),
-    ('Bán hàng');
+    ('Kỹ thuật');
 
 -- Table 2: Position
 INSERT INTO `position` (position_name)
@@ -184,42 +182,27 @@ VALUES
     ('TEST'),
     ('SCRUM_MASTER'),
     ('PM'),
-    ('DEV'),
-    ('TEST'),
-    ('SCRUM_MASTER'),
-    ('PM'),
-    ('DEV'),
-    ('TEST');
+    ('DEV');
 
 -- Table 3: Account
 INSERT INTO account
-    (email, user_name, full_name, department_id, position_id)
+    (email, user_name, full_name, department_id, position_id, create_date)
 VALUES
-    ('loc@gmail1.com', 'ngotienloc01', 'Ngo Tien Loc1', 3, 1),
-    ('loc@gmail2.com', 'ngotienloc02', 'Ngo Tien Loc2', 3, 2),
-    ('loc@gmail3.com', 'ngotienloc03', 'Ngo Tien Loc3', 2, 1),
-    ('loc@gmail4.com', 'ngotienloc04', 'Ngo Tien Loc4', 2, 3),
-    ('loc@gmail5.com', 'ngotienloc05', 'Ngo Tien Loc5', 4, 1),
-    ('loc@gmail6.com', 'ngotienloc06', 'Ngo Tien Loc6', 3, 4),
-    ('loc@gmail7.com', 'ngotienloc07', 'Ngo Tien Loc7', 3, 2),
-    ('loc@gmail8.com', 'ngotienloc08', 'Ngo Tien Loc8', 1, 2),
-    ('loc@gmail9.com', 'ngotienloc09', 'Ngo Tien Loc9', 3, 1),
-    ('loc@gmail10.com', 'ngotienloc10', 'Ngo Tien Loc10', 1, 3);
+    ('loc@gmail1.com', 'ngotienloc01', 'Ngo Tien Loc1', 3, 1, '2020-08-20 08:00:00'),
+    ('loc@gmail2.com', 'ngotienloc02', 'Ngo Tien Loc2', 3, 2, '2026-08-20 08:00:00'),
+    ('loc@gmail3.com', 'ngotienloc03', 'Ngo Tien Loc3', 2, 1, '2026-08-20 08:00:00'),
+    ('loc@gmail4.com', 'ngotienloc04', 'Ngo Tien Loc4', 2, 3, '2026-08-20 08:00:00'),
+    ('loc@gmail5.com', 'ngotienloc05', 'Ngo Tien Loc5', 4, 1, '2026-08-20 08:00:00');
 
 -- Table 4: Group
 INSERT INTO `group`
-    (group_name, creator_id)
+    (group_name, creator_id, create_date)
 VALUES
-    ('Group 1', 1),
-    ('Group 2', 2),
-    ('Group 3', 3),
-    ('Group 4', 4),
-    ('Group 5', 5),
-    ('Group 6', 6),
-    ('Group 7', 7),
-    ('Group 8', 8),
-    ('Group 9', 9),
-    ('Group 10', 10);
+    ('Group 1', 1, '2020-08-20 08:00:00'),
+    ('Group 2', 2, '2024-08-20 08:00:00'),
+    ('Group 3', 3, '2026-08-20 08:00:00'),
+    ('Group 4', 4, '2026-08-20 08:00:00'),
+    ('Group 5', 5, '2026-08-20 08:00:00');
 
 -- Table 5: GroupAccount
 INSERT INTO group_account
@@ -229,12 +212,7 @@ VALUES
     (1, 2),
     (2, 3),
     (3, 4),
-    (4, 5),
-    (5, 6),
-    (6, 7),
-    (7, 8),
-    (8, 9),
-    (9, 10);
+    (4, 5);
 
 -- Table 6: TypeQuestion
 INSERT INTO type_question (type_name)
@@ -257,28 +235,18 @@ VALUES
     ('SQL02'),
     ('SQL03'),
     ('SQL04'),
-    ('SQL05'),
-    ('SQL06'),
-    ('SQL07'),
-    ('SQL08'),
-    ('SQL09'),
-    ('SQL10');
+    ('SQL05');
 
 
 -- Table 8: Question
 INSERT INTO question
-    (content, category_id, type_id, creator_id)
+    (content, category_id, type_id, creator_id, create_date)
 VALUES
-    ('Câu hỏi 1', 1, 1, 1),
-    ('Câu hỏi 2', 2, 2, 2),
-    ('Câu hỏi 3', 3, 1, 3),
-    ('Câu hỏi 4', 4, 2, 4),
-    ('Câu hỏi 5', 5, 1, 5),
-    ('Câu hỏi 6', 6, 2, 6),
-    ('Câu hỏi 7', 7, 1, 7),
-    ('Câu hỏi 8', 8, 2, 8),
-    ('Câu hỏi 9', 9, 1, 9),
-    ('Câu hỏi 10', 10, 2, 10);
+    ('Câu hỏi 1', 1, 1, 1, '2019-08-20 08:00:00'),
+    ('Câu hỏi 2', 2, 2, 2, '2019-08-20 08:00:00'),
+    ('Câu hỏi 3', 3, 1, 3, '2026-08-20 08:00:00'),
+    ('Câu hỏi 4', 4, 2, 4, '2026-08-20 08:00:00'),
+    ('Câu hỏi 5', 5, 1, 5, '2026-08-20 08:00:00');
 
 -- Table 9: Answer
 INSERT INTO answer
@@ -288,27 +256,17 @@ VALUES
     ('Trả lời 2', 1, FALSE),
     ('Trả lời 3', 1, FALSE),
     ('Trả lời 4', 1, FALSE),
-    ('Trả lời 5', 2, TRUE),
-    ('Trả lời 6', 3, TRUE),
-    ('Trả lời 7', 4, TRUE),
-    ('Trả lời 8', 5, TRUE),
-    ('Trả lời 9', 6, TRUE),
-    ('Trả lời 10', 7, TRUE);
+    ('Trả lời 5', 2, TRUE);
 
 -- Table 10: Exam
 INSERT INTO exam
-    (code, title, category_id, duration, creator_id)
+    (code, title, category_id, duration, creator_id, create_date)
 VALUES
-    ('EXAM01', 'Đề thi 1', 1, 60, 1),
-    ('EXAM02', 'Đề thi 2', 2, 45, 2),
-    ('EXAM03', 'Đề thi 3', 3, 60, 3),
-    ('EXAM04', 'Đề thi 4', 4, 30, 4),
-    ('EXAM05', 'Đề thi 5', 5, 45, 5),
-    ('EXAM06', 'Đề thi 6', 6, 60, 6),
-    ('EXAM07', 'Đề thi 7', 7, 90, 7),
-    ('EXAM08', 'Đề thi 8', 8, 60, 8),
-    ('EXAM09', 'Đề thi 9', 9, 45, 9),
-    ('EXAM10', 'Đề thi 10', 10, 60, 10);
+    ('EXAM01', 'Đề thi 1', 1, 60, 1, '2019-08-20 08:00:00'),
+    ('EXAM02', 'Đề thi 2', 2, 45, 2, '2019-08-20 08:00:00'),
+    ('EXAM03', 'Đề thi 3', 3, 60, 3, '2026-08-20 08:00:00'),
+    ('EXAM04', 'Đề thi 4', 4, 30, 4, '2026-08-20 08:00:00'),
+    ('EXAM05', 'Đề thi 5', 5, 45, 5, '2026-08-20 08:00:00');
 
 -- Table 11: ExamQuestion
 INSERT INTO exam_question
@@ -318,9 +276,118 @@ VALUES
     (1, 2),
     (2, 3),
     (3, 4),
-    (4, 5),
-    (5, 6),
-    (6, 7),
-    (7, 8),
-    (8, 9),
-    (9, 10);
+    (4, 5);
+    
+-- ============================ Search ==================================
+    
+-- Question 2: Lấy ra tất cả các phòng ban
+SELECT *
+FROM department;
+
+
+-- Question 3: Lấy ra id của phòng ban "Sale"
+SELECT department_id
+FROM department
+WHERE department_name = 'Sale';
+
+
+-- Question 4: Lấy ra thông tin account có full name dài nhất
+SELECT *
+FROM account
+ORDER BY CHAR_LENGTH(full_name) DESC
+LIMIT 1;
+
+
+-- Question 5: Lấy ra thông tin account có full name dài nhất và thuộc phòng ban có id = 3
+SELECT *
+FROM account
+WHERE department_id = 3
+ORDER BY CHAR_LENGTH(full_name) DESC
+LIMIT 1;
+
+
+-- Question 6: Lấy ra tên group đã tham gia trước ngày 20/12/2019
+SELECT DISTINCT g.group_name
+FROM `group` g
+JOIN group_account ga
+    ON g.group_id = ga.group_id
+WHERE ga.join_date < '2019-12-20';
+
+
+-- Question 7: Lấy ra ID của question có >= 4 câu trả lời
+SELECT question_id
+FROM answer
+GROUP BY question_id
+HAVING COUNT(answer_id) >= 4;
+
+
+-- Question 8: Lấy ra các mã đề thi có thời gian thi >= 60 phút và được tạo trước ngày 20/12/2019
+SELECT code
+FROM exam
+WHERE duration >= 60
+  AND create_date < '2019-12-20';
+
+
+-- Question 9: Lấy ra 5 group được tạo gần đây nhất
+SELECT *
+FROM `group`
+ORDER BY create_date DESC
+LIMIT 5;
+
+
+-- Question 10: Đếm số nhân viên thuộc department có id = 2
+SELECT COUNT(account_id) AS so_luong_nhan_vien
+FROM account
+WHERE department_id = 2;
+
+
+-- Question 11: Lấy ra nhân viên có tên bắt đầu bằng chữ "D" và kết thúc bằng chữ "o"
+SELECT *
+FROM account
+WHERE full_name LIKE 'D%o';
+
+
+-- Question 12: Xóa tất cả các exam được tạo trước ngày 20/12/2019
+DELETE FROM exam_question
+WHERE exam_id IN (
+    SELECT exam_id
+    FROM exam
+    WHERE create_date < '2019-12-20'
+);
+
+DELETE FROM exam
+WHERE create_date < '2019-12-20';
+
+
+-- Question 13: Xóa tất cả các question có nội dung bắt đầu bằng từ "câu hỏi"
+DELETE FROM answer
+WHERE question_id IN (
+    SELECT question_id
+    FROM question
+    WHERE content LIKE 'Câu hỏi%'
+);
+
+DELETE FROM exam_question
+WHERE question_id IN (
+    SELECT question_id
+    FROM question
+    WHERE content LIKE 'Câu hỏi%'
+);
+
+DELETE FROM question
+WHERE content LIKE 'Câu hỏi%';
+
+
+-- Question 14: Update account có id = 5
+UPDATE account
+SET full_name = 'Nguyễn Bá Lộc',
+    email = 'loc.nguyenba@vti.com.vn'
+WHERE account_id = 5;
+
+
+-- Question 15: Update account có id = 5 sẽ thuộc group có id = 4
+UPDATE group_account
+SET group_id = 4
+WHERE account_id = 5;
+
+12:22:47	DELETE FROM exam WHERE create_date < '2019-12-20'	Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column.  To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.	0.00015 sec
