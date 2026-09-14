@@ -1,6 +1,6 @@
 public class Answer {
-    int answerID;
+    int id;
     String content;
-    Question questionID;
+    Question question;
     boolean isConnect ;
 }

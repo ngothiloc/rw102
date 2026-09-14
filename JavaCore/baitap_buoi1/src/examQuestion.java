@@ -1,4 +1,4 @@
 public class examQuestion {
-    Exam examID;
-    Question questionID;
+    Exam exam;
+    Question question;
 }

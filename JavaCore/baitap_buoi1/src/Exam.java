@@ -2,11 +2,11 @@ import java.sql.Time;
 import java.time.LocalDate;
 
 public class Exam {
-    int examID;
+    int id;
     int code;
     String title;
-    categoryQuestion categoryID;
-    Time Duriation;
-    Account creatorID;
+    CategoryQuestion category;
+    Time duriation;
+    Account creator;
     LocalDate createDate;
 }

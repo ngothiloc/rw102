@@ -1,10 +1,10 @@
 import java.time.LocalDate;
 
 public class Question {
-    int questionID;
+    int id;
     String content;
-    categoryQuestion catagoryID;
-    typeQuestion typeID;
-    Account creatorID;
+    CategoryQuestion catagory;
+    TypeQuestion type;
+    Account creator;
     LocalDate createDate;
 }

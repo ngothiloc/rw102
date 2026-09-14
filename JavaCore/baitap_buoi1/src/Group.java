@@ -1,8 +1,8 @@
 import java.time.LocalDate;
 
 public class Group {
-    int groupID;
+    int id;
     String groupName;
-    Account creatorID;
+    Account creator;
     LocalDate createDate;
 }

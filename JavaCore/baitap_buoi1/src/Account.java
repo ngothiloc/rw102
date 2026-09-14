@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 
 public class Account {
-    int accountID;
+    int id;
     String email;
     String useName;
     String fullName;
