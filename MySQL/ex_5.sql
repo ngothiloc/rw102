@@ -344,9 +344,21 @@ SELECT
     type_id,
     creator_id,
     create_date
-FROM question
--- Cách đơn giản: hiểu content quá dài là nội dung có hơn 300 ký tự
-WHERE CHAR_LENGTH(content) > 300;
+FROM (
+    SELECT
+        question_id,
+        content,
+        category_id,
+        type_id,
+        creator_id,
+        create_date,
+        REGEXP_REPLACE(TRIM(content), '[[:space:]]+', ' ') AS content_da_xoa_khoang_trang_thua
+    FROM question
+) q
+WHERE
+    CHAR_LENGTH(content_da_xoa_khoang_trang_thua)
+    - CHAR_LENGTH(REPLACE(content_da_xoa_khoang_trang_thua, ' ', ''))
+    + 1 > 300;
 
 SELECT *
 FROM view_question_content_long;
