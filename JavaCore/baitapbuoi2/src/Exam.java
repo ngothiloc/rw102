@@ -1,10 +1,11 @@
 import java.time.LocalDate;
 
-public class Question {
+public class Exam {
     int id;
-    String content;
+    int code;
+    String title;
     CategoryQuestion category;
-    TypeQuestion type;
+    int duration;
     Account creator;
     LocalDate createDate;
 }

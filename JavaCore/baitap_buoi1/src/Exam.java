@@ -6,7 +6,7 @@ public class Exam {
     int code;
     String title;
     CategoryQuestion category;
-    Time duriation;
+    int duration;
     Account creator;
     LocalDate createDate;
 }
