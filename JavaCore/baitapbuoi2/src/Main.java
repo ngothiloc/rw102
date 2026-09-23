@@ -57,7 +57,7 @@ public class Main {
         account2.id = 2;
         account2.email = "loc2@gmail.com";
         account2.fullName = "Loc2";
-        account2.position = position2;
+        account2.position = position1;
         account2.department = department1;
         account2.useName = "ngoloc2";
         account2.createDate = LocalDate.of(2026, 1, 1);
@@ -131,7 +131,8 @@ public class Main {
 //        Kiểm tra Position của account thứ 1
 //        Nếu Position = Dev thì in ra text "Đây là Developer"
 //        Nếu không phải thì in ra text "Người này không phải là Developer"
-        System.out.println(account1.position.name == PositionName.DEV ? "Đây là Developer" : "Người này không phải là Developer");
+        System.out.println("=======Q3========");
+        System.out.println(account2.position != null && account2.position.name == PositionName.DEV ? "Đây là Developer" : "Người này không phải là Developer");
 
         //SWITCH CASE
 //        Question 5:
@@ -263,5 +264,13 @@ public class Main {
         for (int i = 2; i <= 20; i += 2) {
             System.out.println(i);
         }
+
+        System.out.println("+-----+--------------------+");
+        System.out.printf("|%5s|%20s|\n", "ID", "Department Name");
+        System.out.println("+-----+--------------------+");
+        for (Department department : departments) {
+            System.out.printf("|%5d|%20s|\n", department.id, department.name);
+        }
+        System.out.println("+-----+--------------------+");
     }
 }
