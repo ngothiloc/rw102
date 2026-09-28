@@ -2,34 +2,54 @@ import java.util.Scanner;
 
 public class Ex4 {
 
+ private  static Scanner scanner = new Scanner(System.in);
 
-    Scanner scanner = new Scanner(System.in);
 //    Question 1:
 //    Nhập một xâu kí tự, đếm số lượng các từ trong xâu kí tự đó (các từ có thể cách nhau bằng nhiều khoảng trắng );
-    public void question1() {
+    public static void question1() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập chuỗi: ");
         String s = scanner.nextLine();
-        String[] words = s.trim().split("[space]+");
+        String[] words = s.trim().split("\\s+");
         System.out.println("Số lượng từ trong chuỗi là: " + words.length);
     }
 
 //    Question 2:
 //    Nhập hai xâu kí tự s1, s2 nối xâu kí tự s2 vào sau xâu s1;
-    public void question2() {
+    public static void question2() {
+        Scanner scanner = new Scanner(System.in);
+        String s1;
+        String s2;
         System.out.print("Nhập chuỗi s1: ");
-        String s1 = scanner.nextLine();
+        while(true) {
+             s1 = scanner.nextLine();
+            if (!s1.isBlank()){
+                break;
+            }
+            System.err.println("Vui long nhap chuoi 1!");
+        }
         System.out.print("Nhập chuỗi s2: ");
-        String s2 = scanner.nextLine();
-        String result = s1 + s2;
-        System.out.println("Chuỗi sau khi nối là: " + result);
+        while(true) {
+            s2 = scanner.nextLine();
+            if (!s2.isBlank()){
+                break;
+            }
+            System.err.println("Vui long nhap chuoi 2!");
+        }
+        String s3 = s1 + s2;
+        System.out.println("Chuỗi sau khi nối là: " + s3);
+        String s4 = new StringBuilder().append(s1).append(s2).toString();
+        System.out.println("Chuỗi sau khi nối là: " + s4);
+
     }
 
 //    Question 3:
 //    Viết chương trình để người dùng nhập vào tên và kiểm tra, nếu tên chữ viết hoa chữ cái đầu thì viết hoa lên.
-    public void question3() {
+    public static void question3() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập tên: ");
         String name = scanner.nextLine();
-        String newName = name.substring(0, 1).toUpperCase() + name.substring(1);
+        String newName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
         System.out.println("Tên sau khi viết hoa: " + newName);
     }
 
@@ -40,7 +60,8 @@ public class Ex4 {
 //        "Ký tự thứ 1 là: N"
 //        "Ký tự thứ 1 là: A"
 //        "Ký tự thứ 1 là: M"
-    public void question4() {
+    public static void question4() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập tên: ");
         String name = scanner.nextLine();
         for (int i = 0; i < name.length(); i++) {
@@ -50,7 +71,8 @@ public class Ex4 {
 
 //    Question 5:
 //    Viết chương trình để người dùng nhập vào họ, sau đó yêu cầu người dùng nhập vào tên và hệ thống sẽ in ra họ và tên đầy đủ.
-    public void question5() {
+    public static void question5() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập họ: ");
         String ho = scanner.nextLine();
         System.out.print("Nhập tên: ");
@@ -67,20 +89,57 @@ public class Ex4 {
 //            "Họ là: Nguyễn"
 //            "Tên đệm là: Văn"
 //            "Tên là: Nam"
-//
-//
+    public static void question6() {
+        System.out.print("Nhập họ và tên đầy đủ: ");
+        String hoTen = scanner.nextLine();
+        String[] words = hoTen.trim().split("\\s+");
+        String ho = words[0];
+        String ten = words[words.length - 1];
+        String tenDem = "";
+        for (int i = 1; i < words.length - 1; i++) {
+            tenDem = tenDem + words[i] + " ";
+        }
+        System.out.println("Họ là: " + ho);
+        System.out.println("Tên đệm là: " + tenDem.trim());
+        System.out.println("Tên là: " + ten);
+    }
 //    Question 7:
 //    Viết chương trình yêu cầu người dùng nhập vào họ và tên đầy đủ và chuẩn hóa họ và tên của họ như sau:
 //    a) Xóa dấu cách ở đầu và cuối và giữa của chuỗi người dùng nhập vào
 //    VD: Nếu người dùng nhập vào " nguyễn văn nam " thì sẽ chuẩn hóa thành "nguyễn văn   nam"
 //    b) Viết hoa chữ cái mỗi từ của người dùng
 //    VD: Nếu người dùng nhập vào " nguyễn văn nam " thì sẽ chuẩn hóa thành "Nguyễn Văn Nam"
-//
-//
+    public static void question7() {
+        System.out.print("Nhập họ và tên đầy đủ: ");
+        String hoTen = scanner.nextLine();
+        // Xóa khoảng trắng thừa
+        hoTen = hoTen.trim();
+        String[] words = hoTen.split("[ ]+");
+        String result = "";
+        // Viết hoa chữ cái đầu của từng từ
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            word = word.substring(0, 1).toUpperCase()
+                    + word.substring(1).toLowerCase();
+            result = result + word + " ";
+        }
+        System.out.println("Họ tên sau khi chuẩn hóa: " + result.trim());
+    }
 //    Question 8:
 //    In ra tất cả các group có chứa chữ "Java"
-//
-//
+//public void question8(Group[] groups) {
+//    System.out.println("+-------+----------------------+");
+//    System.out.printf("| %-5s | %-20s |%n", "ID", "Group Name");
+//    System.out.println("+-------+----------------------+");
+//    for (int i = 0; i < groups.length; i++) {
+//        if (groups[i].name.contains("Java")) {
+//            System.out.printf("| %-5d | %-20s |%n",
+//                    groups[i].id,
+//                    groups[i].name);
+//        }
+//    }
+//    System.out.println("+-------+----------------------+");
+//}
 //    Question 9:
 //    In ra tất cả các group "Java"
 //
@@ -93,7 +152,8 @@ public class Ex4 {
 //
 //    Question 11: Count special Character
 //    Tìm số lần xuất hiện ký tự "a" trong chuỗi
-    public void question11() {
+    public static void question11() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập chuỗi: ");
         String s = scanner.nextLine();
         int count = 0;
@@ -107,7 +167,8 @@ public class Ex4 {
 //
 //    Question 12: Reverse String
 //    Đảo ngược chuỗi sử dụng vòng lặp
-    public void question12() {
+    public static void question12() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập chuỗi: ");
         String s = scanner.nextLine();
         String reverse = "";
