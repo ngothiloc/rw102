@@ -12,9 +12,10 @@ public class Program {
     }
 
     public static void menu(){
+        Scanner sc = new Scanner(System.in);
+        IQLCB iqlcb = new QLCB();
+
         while (true) {
-            Scanner sc = new Scanner(System.in);
-            IQLCB iqlcb = new QLCB();
             System.out.println("");
             System.out.println("=== MOI BAN CHON CHUC NANG ===");
             System.out.println("1. Thêm mới cán bộ.");
