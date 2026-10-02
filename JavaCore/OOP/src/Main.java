@@ -1,6 +1,6 @@
 
 //chuyến các đối tượng thực tế thành các class trong code đế dê quản lý
-//1 đối tượng 2 thành phần
+//1 đối tượng 2 thành phần : thuộc tính, phương thức
 //các đặc điểm của đối tượng tên, địa chỉ, tài khoản, email các hành động của đôi tượng an, uong
 //4 tính chất
     //- đóng gói: các class khác nhau ko thế truy cập trực tiếp tới các thuộc tính của
@@ -51,6 +51,16 @@
 //Array thì sẽ bị giời hạn sẽ theo kiểu
 //private CanBo[] canbos = new CanBo[1000]
 //        private List<CanBo> canBoList = new ArayList<>();
+
+// 2 loai datatype: nguyen thuy (int, float, ...),
+// nguyen thuy luu ở bộ nhớ stack
+//object lưu ở bộ nhớ heap
+
+
+
+
+// Statement : ho tro cai sql tinh nhu select
+// PreparedStatement : Ho tro cau sql dong co tham so nhu where, like,...
 
 public class Main {
     public static void main(String[] args) {
