@@ -3,13 +3,13 @@ package entity;
 import java.time.LocalDate;
 
 public class Account {
-    int id;
-    String email;
-    String username;
-    String fullName;
-    Department department;
-    Position position;
-    LocalDate created_date;
+    private int id;
+    private String email;
+    private String username;
+    private String fullName;
+    private Department department;
+    private Position position;
+    private LocalDate created_date;
 
     public Account(){
     }

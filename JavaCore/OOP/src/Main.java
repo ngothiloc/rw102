@@ -62,6 +62,12 @@
 // Statement : ho tro cai sql tinh nhu select
 // PreparedStatement : Ho tro cau sql dong co tham so nhu where, like,...
 
+
+// co static thi se khong phai khoi tao oject nua | con ko co thi se can phai khoi tao oject
+
+//static khi an ran thi se duoc cap phat bo nho luon con ko co static thi se phai khoi tao thi moi hien thi
+//-> khi nao dung di dung lai nhieu thi se nen dung static con neu ko dung nhieu thi se gay lang phi tai nguyen
+
 public class Main {
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text

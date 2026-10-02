@@ -37,6 +37,9 @@ public class Program {
                 case "4":
                     iqlcb.xoaTheoTen();
                     break;
+                case "6" :
+                    iqlcb.updateTheoTen();
+                    break;
                 case "5":
                     System.out.println("Thoat");
                     System.exit(0);

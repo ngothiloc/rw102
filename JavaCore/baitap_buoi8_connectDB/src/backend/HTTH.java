@@ -24,8 +24,8 @@ public class HTTH implements IHTTH {
             String password = "311004";
             Connection connection = DriverManager.getConnection(url, username, password);
             String sql = "select acc.account_id, acc.email, acc.username, acc.full_name, dep.department_name, pos.position_name, acc.created_date from account acc\n" +
-                    "join department dep ON acc.department_id = dep.department_id\n" +
-                    "join position pos ON acc.position_id = pos.position_id;";
+                    "left join department dep ON acc.department_id = dep.department_id\n" +
+                    "left join position pos ON acc.position_id = pos.position_id;";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){

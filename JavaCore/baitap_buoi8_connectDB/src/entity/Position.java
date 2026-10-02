@@ -1,8 +1,8 @@
 package entity;
 
 public class Position {
-    int id;
-    String positionName;
+    private int id;
+    private String positionName;
 
     public Position(){
     }
