@@ -12,17 +12,17 @@ public class QLCB implements IQLCB{
     private Scanner sc = new Scanner(System.in);
     private List<CanBo> canBoList = new ArrayList<>();
 
-    public Connection getConnection(){
-        String url = "jdbc:mysql://localhost:3306/qlcb";
-        String username = "root";
-        String password = "311004";
-        Connection conn = null;
-        try {
-            return  DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } return conn;
-    }
+//    public Connection getConnection(){
+//        String url = "jdbc:mysql://localhost:3306/qlcb";
+//        String username = "root";
+//        String password = "311004";
+//        Connection conn = null;
+//        try {
+//            return  DriverManager.getConnection(url, username, password);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        } return conn;
+//    }
 
     @Override
     public void themMoi() {
@@ -30,9 +30,9 @@ public class QLCB implements IQLCB{
         String sql = null;
         PreparedStatement preparedStatement = null;
 
-        String url = "jdbc:mysql://localhost:3306/qlcb";
-        String username = "root";
-        String password = "311004";
+//        String url = "jdbc:mysql://localhost:3306/qlcb";
+//        String username = "root";
+//        String password = "311004";
 
         System.out.println("==== THEM MOI CAN BO ====");
 
