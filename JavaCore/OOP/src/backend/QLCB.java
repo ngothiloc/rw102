@@ -147,11 +147,11 @@ public class QLCB implements IQLCB{
 
     @Override
     public void timKiemTheoTen() {
-        List<CanBo> canBoList = new ArrayList<>();
         System.out.println("==== TIM KIEM THEO TEN ====");
         System.out.print("Nhap ho ten can bo can tim: ");
         String ten = sc.nextLine();
 
+        List<CanBo> canBoList = new ArrayList<>();
         try {
 //            //b1 lay du lieu
             // tao ket noi den database
