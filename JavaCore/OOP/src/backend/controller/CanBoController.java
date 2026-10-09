@@ -25,4 +25,12 @@ public class CanBoController {
     public boolean deleteByName(String ten) {
         return canBoService.deleteByName(ten);
     }
+
+    public boolean save(CanBo canBo) {
+        return canBoService.save(canBo);
+    }
+
+    public boolean existByName(String hoten) {
+        return canBoService.existByName(hoten);
+    }
 }

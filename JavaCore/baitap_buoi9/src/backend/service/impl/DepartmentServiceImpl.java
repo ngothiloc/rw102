@@ -30,5 +30,10 @@ public class DepartmentServiceImpl implements IDepartmentService {
         return departmentRepository.xoaDep_theoID(depID);
     }
 
+    @Override
+    public boolean update_Ten_PhongBan_TheoID(int depID, String depName) {
+        return departmentRepository.update_Ten_PhongBan_TheoID(depID, depName);
+    }
+
 
 }

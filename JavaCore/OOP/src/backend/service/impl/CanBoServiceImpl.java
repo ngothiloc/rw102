@@ -29,4 +29,14 @@ public class CanBoServiceImpl implements ICanBoService {
         return repository.deleteByName(ten);
     }
 
+    @Override
+    public boolean save(CanBo canBo) {
+        return repository.save(canBo);
+    }
+
+    @Override
+    public boolean existByName(String hoten) {
+        return repository.existByName(hoten);
+    }
+
 }

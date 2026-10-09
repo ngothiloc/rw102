@@ -10,4 +10,8 @@ public interface ICanBoService {
     List<CanBo> findByName(String ten);
 
     boolean deleteByName(String ten);
+
+    boolean save(CanBo canBo);
+
+    boolean existByName(String hoten);
 }

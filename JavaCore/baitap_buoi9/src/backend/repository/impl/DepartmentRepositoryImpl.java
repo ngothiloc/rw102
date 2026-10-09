@@ -75,4 +75,23 @@ public class DepartmentRepositoryImpl implements IDepartmentRepository {
         }
         return false;
     }
+
+    @Override
+    public boolean update_Ten_PhongBan_TheoID(int depID, String depName) {
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "update department SET department_name = ? where department_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, depName);
+            preparedStatement.setInt(2, depID);
+
+            int c = preparedStatement.executeUpdate();
+            if(c > 0 ) return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
 }

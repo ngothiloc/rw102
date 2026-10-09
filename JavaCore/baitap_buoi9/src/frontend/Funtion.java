@@ -1,8 +1,10 @@
 package frontend;
 import backend.controller.AccountController;
 import backend.controller.DepartmentController;
+import backend.controller.PositionController;
 import entity.Account;
 import entity.Department;
+import entity.Position;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +13,14 @@ import java.util.Scanner;
 public class Funtion {
     private AccountController accountController;
     private DepartmentController departmentController;
+    private PositionController positionController;
 
     Scanner sc = new Scanner(System.in);
 
     public Funtion(){
         this.accountController = new AccountController();
         this.departmentController = new DepartmentController();
+        this.positionController = new PositionController();
     }
 
 //    ======= Account =======
@@ -50,11 +54,132 @@ public class Funtion {
         System.out.println("+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+");
     }
 //        3. Thêm mới account
+    public void themMoiAcc() {
+        System.out.println("==== THEM MOI CAN BO ====");
+
+        System.out.print("Nhap email: ");
+        String email;
+        while (true){
+            email = sc.nextLine();
+            if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+                System.err.println("Email khong dung dinh dang! Vui long nhap lai.");
+                continue;
+            }
+            boolean check = accountController.existByEmail(email);
+            if (check) {
+                System.err.println("email nay da ton tai !!! Chon email khac");
+                continue;
+            } break;
+        }
+
+        System.out.print("Nhap username: ");
+        String username;
+        while (true){
+            username = sc.nextLine();
+            if (username.length() < 5 || username.length() > 50){
+                System.err.println("ho ten phai tu 5 - 50 ky tu nhap lai!!!");
+                continue;
+            }
+            boolean check = accountController.existByUsername(username);
+            if (check) {
+                System.err.println("username nay da ton tai !!! Chon username khac");
+                continue;
+            } break;
+        }
+
+        System.out.print("Nhap ho va ten: ");
+        String fullname;
+        while (true) {
+            fullname = sc.nextLine();
+            if (fullname.length() < 5 || fullname.length() > 50){
+                System.err.println("ho ten phai tu 5 - 50 ky tu nhap lai!!!");
+                continue;
+            } break;
+        }
+
+        System.out.println("---Chon Department---");
+        departmentController.hienThiDep();
+        List<Department> departmentList = departmentController.hienThiDep();
+        System.out.println("+----------+---------------+");
+        System.out.printf("|%10s|%15s|\n", "DepID", "DepName");
+        System.out.println("+----------+---------------+");
+        for (Department dep : departmentList) {
+            System.out.printf("|%10d|%15s|\n", dep.getId(), dep.getDeparrmentName());
+        }
+        System.out.println("+----------+---------------+");
+        while (true) {
+            System.out.println("Nhap department: ");
+            int depID;
+            if (!sc.hasNextInt()) {
+                System.out.println("Vui long nhap so !!!");
+                continue;
+            }
+
+            depID = sc.nextInt();
+            sc.nextLine();
+            boolean check = false;
+
+            for (Department dep : departmentList) {
+                if (dep.getId() == depID) {
+                    check = true;
+                    break;
+                }
+            }
+            if (check) {
+                break;
+            } else {
+                System.out.println("DepID khong ton tai !!!");
+            }
+        }
+
+        System.out.println("---Chon Position---");
+        List<Position> positionList = positionController.hienThiPos();
+        System.out.println("+----------+---------------+");
+        System.out.printf("|%10s|%15s|\n", "PosID", "PosName");
+        System.out.println("+----------+---------------+");
+        for (Position pos : positionList) {
+            System.out.printf("|%10d|%15s|\n", pos.getId(), pos.getPositionName());
+        }
+        System.out.println("+----------+---------------+");
+        while (true) {
+            System.out.println("Nhap position: ");
+            int posID;
+            if (!sc.hasNextInt()) {
+                System.out.println("Vui long nhap so !!!");
+                continue;
+            }
+
+            posID = sc.nextInt();
+            sc.nextLine();
+            boolean check = false;
+
+            for (Position pos : positionList) {
+                if (pos.getId() == posID) {
+                    check = true;
+                    break;
+                }
+            }
+            if (check) {
+                break;
+            } else {
+                System.out.println("DepID khong ton tai !!!");
+            }
+        }
+
+    }
 //        4. Xóa acccount theo username
     public void xoaAccTheoUsername(){
         System.out.println("==== XOA ACC THEO USERNAME ====");
         System.out.print("Nhap username can xoa: ");
-        String username = sc.nextLine();
+        String username;
+        while (true){
+            username = sc.nextLine();
+            boolean check = accountController.existByUsername(username);
+            if (!check) {
+                System.err.println("username nay khong ton tai");
+                continue;
+            } break;
+        }
 
         boolean check = accountController.xoaAccTheoUsername(username);
 
@@ -65,6 +190,92 @@ public class Funtion {
         }
     }
 //        5. Update fullname theo username
+    public void updateFullname_theoUser(){
+        System.out.println("==== CAP NHAT THEO USERNAME ====");
+        System.out.print("Nhap username can cap nhat: ");
+        String username;
+        while (true){
+            username = sc.nextLine();
+            boolean check = accountController.existByUsername(username);
+            if (!check) {
+                System.err.println("username nay khong ton tai");
+                continue;
+            } break;
+        }
+
+        System.out.print("Nhap fullname can update: ");
+        String fullname;
+        while (true) {
+            fullname = sc.nextLine();
+            if (fullname.length() < 5 || fullname.length() > 50){
+                System.err.println("ho ten phai tu 5 - 50 ky tu nhap lai!!!");
+                continue;
+            } break;
+        }
+
+        boolean check = accountController.updateFullname_theoUser(username, fullname);
+
+        if (check) {
+            System.out.println("cap nhat thanh cong !!!");
+        } else {
+            System.out.println("Cap nhat that bai !!!");
+        }
+    }
+//    6. Xóa acccount theo id
+public void xoaAccTheoId(){
+    System.out.println("==== XOA ACC THEO ID ====");
+    System.out.print("Nhap id can xoa: ");
+    String accId;
+    while (true){
+        accId = sc.nextLine();
+        boolean check = accountController.existById(accId);
+        if (!check) {
+            System.err.println("ID account nay khong ton tai");
+            continue;
+        } break;
+    }
+
+    boolean check = accountController.xoaAccTheoId(accId);
+
+    if (check){
+        System.out.println("Xoa acc thanh cong !!!");
+    } else {
+        System.out.println("Xoa acc loi !!!");
+    }
+}
+//    7. Update fullname theo id
+public void updateFullname_theoAccId(){
+    System.out.println("==== CAP NHAT THEO USERNAME ====");
+    System.out.print("Nhap account id can cap nhat: ");
+    String accId;
+    while (true){
+        accId = sc.nextLine();
+        boolean check = accountController.existById(accId);
+        if (!check) {
+            System.err.println("username nay khong ton tai");
+            continue;
+        } break;
+    }
+
+    System.out.print("Nhap fullname can update: ");
+    String fullname;
+    while (true) {
+        fullname = sc.nextLine();
+        if (fullname.length() < 5 || fullname.length() > 50){
+            System.err.println("ho ten phai tu 5 - 50 ky tu nhap lai!!!");
+            continue;
+        } break;
+    }
+
+    boolean check = accountController.updateFullname_theoAccId(accId, fullname);
+
+    if (check) {
+        System.out.println("cap nhat thanh cong !!!");
+    } else {
+        System.out.println("Cap nhat that bai !!!");
+    }
+}
+
 
 //    ======= Department =======
 //        1. Hiến thị department
@@ -113,6 +324,23 @@ public class Funtion {
        }
     }
 //        5. Update tên phòng ban theo id
+    public void update_Ten_PhongBan_TheoID(){
+        System.out.println("==== CAP NHAT THEO ID ====");
+        System.out.print("Nhap ID phong ban can cap nhat: ");
+        int depID = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Nhap ten phong ban can update: ");
+        String depName = sc.nextLine();
+
+        boolean check = departmentController.update_Ten_PhongBan_TheoID(depID, depName);
+
+        if (check) {
+            System.out.println("Cap nhat thanh cong !!!");
+        } else {
+            System.out.println("Xoa thanh cong!!!");
+        }
+    }
 
     public void menu(){
         while (true) {

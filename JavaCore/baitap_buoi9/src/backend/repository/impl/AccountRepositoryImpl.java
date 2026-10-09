@@ -100,4 +100,154 @@ public class AccountRepositoryImpl implements IAccountRepository {
         }
         return false;
     }
+
+    @Override
+    public boolean updateFullname_theoUser(String username, String fullname) {
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "update account SET full_name = ? where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, fullname);
+            preparedStatement.setString(2, username);
+
+            int c = preparedStatement.executeUpdate();
+            if(c > 0 ) return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean existByUsername(String username) {
+        try {
+            // tạo kết nối đến Database
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select * from account where username like ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {// next dc là có dữ liệu  -> tòn tại
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {// cụm này luôn thực hien cuối cùng
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean existByEmail(String email) {
+        try {
+            // tạo kết nối đến Database
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select * from account where email like ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, email);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {// next dc là có dữ liệu  -> tòn tại
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {// cụm này luôn thực hien cuối cùng
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean existByName(String fullname) {
+        try {
+            // tạo kết nối đến Database
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select * from account where full_name like ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, fullname);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {// next dc là có dữ liệu  -> tòn tại
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {// cụm này luôn thực hien cuối cùng
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean existById(String accId) {
+        try {
+            // tạo kết nối đến Database
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select * from account where account_id like ?";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, accId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {// next dc là có dữ liệu  -> tòn tại
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {// cụm này luôn thực hien cuối cùng
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean xoaAccTheoId(String accId) {
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "DELETE FROM account WHERE account_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, accId);
+
+            int c = preparedStatement.executeUpdate();
+            if (c > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateFullname_theoAccId(String accId, String fullname) {
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "update account SET full_name = ? where account_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, fullname);
+            preparedStatement.setString(2, accId);
+
+            int c = preparedStatement.executeUpdate();
+            if(c > 0 ) return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
 }

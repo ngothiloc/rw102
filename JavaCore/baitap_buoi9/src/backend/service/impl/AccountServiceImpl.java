@@ -27,4 +27,39 @@ public class AccountServiceImpl implements IAccountService {
     public boolean xoaAccTheoUsername(String username) {
         return accountRepository.xoaAccTheoUsername(username);
     }
+
+    @Override
+    public boolean updateFullname_theoUser(String username, String fullname) {
+        return accountRepository.updateFullname_theoUser(username, fullname);
+    }
+
+    @Override
+    public boolean existByUsername(String username) {
+        return accountRepository.existByUsername(username);
+    }
+
+    @Override
+    public boolean existByEmail(String email) {
+        return accountRepository.existByEmail(email);
+    }
+
+    @Override
+    public boolean existByName(String fullname) {
+        return accountRepository.existByName(fullname);
+    }
+
+    @Override
+    public boolean existById(String accId) {
+        return accountRepository.existById(accId);
+    }
+
+    @Override
+    public boolean xoaAccTheoId(String accId) {
+        return accountRepository.xoaAccTheoId(accId);
+    }
+
+    @Override
+    public boolean updateFullname_theoAccId(String accId, String fullname) {
+        return accountRepository.updateFullname_theoAccId(accId, fullname);
+    }
 }

@@ -29,4 +29,9 @@ public class DepartmentController {
     public boolean xoaDep_theoID(int depID) {
         return departmentService.xoaDep_theoID(depID);
     }
+
+
+    public boolean update_Ten_PhongBan_TheoID(int depID, String depName) {
+        return departmentService.update_Ten_PhongBan_TheoID(depID, depName);
+    }
 }
