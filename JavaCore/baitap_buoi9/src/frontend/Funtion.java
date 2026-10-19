@@ -362,7 +362,9 @@ public void updateFullname_theoAccId(){
                         System.out.println("3. Thêm mới account");
                         System.out.println("4. Xóa acccount theo username");
                         System.out.println("5. Update fullname theo username");
-                        System.out.println("6. Quay lại");
+                        System.out.println("6. Xóa acccount theo id");
+                        System.out.println("7. Update fullname theo id");
+                        System.out.println("8. Quay lại");
                         String choiceAccount = sc.nextLine();
                         switch (choiceAccount){
                             case "1":
@@ -372,15 +374,20 @@ public void updateFullname_theoAccId(){
                                 this.timKiemAccount_TheoUser();
                                 break;
                             case "3":
-//                                iqlAccount.themMoiAcc();
+                                this.themMoiAcc();
                                 break;
                             case "4":
                                 this.xoaAccTheoUsername();
                                 break;
                             case "5" :
-//                                iqlAccount.updateFullname_theoUser();
+                                this.xoaAccTheoId();
                                 break;
-                            case "6":
+                            case "6" :
+                                this.updateFullname_theoAccId();
+                                break;
+                            case "7" :
+                                break;
+                            case "8":
                                 accountMenu = false;
                                 break;
                             default:
