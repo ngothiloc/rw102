@@ -5,101 +5,87 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51961dbe-b3f4-41a8-92ce-75f8a3f7357e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../OOP/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OOP/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OOP/src/backend/IQLCB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OOP/src/backend/repository/ICanBoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OOP/src/backend/service/ICanBoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OOP/src/frontend/Program.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi8_connectDB/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi8_connectDB/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi8_connectDB/.idea/libraries/mysql_connector_j_9_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi8_connectDB/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi8_connectDB/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi8_connectDB/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi8_connectDB/src/backend/IHTTH.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/.idea/libraries/mysql_connector_j_9_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/backend/IQLAccount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/backend/IQLDepartment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/backend/controller/PositionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/backend/repository/IAccountRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/backend/repository/IDepartmentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/backend/repository/IPositionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/backend/service/IAccountService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/backend/service/IDepartmentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/backend/service/IPositionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/backend/service/impl/PositionServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/frontend/Funtion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../baitap_buoi9/src/frontend/Funtion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../baitap_buoi9/src/frontend/Program.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/backend/common/StringCommon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/IDepartmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/IDepartmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/IPositionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/IPositionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/impl/DepartmentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/impl/DepartmentRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/impl/PositionRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/backend/repository/impl/PositionRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/service/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/backend/service/impl/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/backend/service/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/backend/service/impl/DepartmentServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.7412970591995129E-109" />
-      <entry key="MS500" value="1.7708206318750147E-22" />
-      <entry key="S2" value="3.647906038877288E-6" />
-      <entry key="S5" value="0.006681601436148395" />
-      <entry key="S10" value="0.08273066707601265" />
-      <entry key="S30" value="0.5553370555472972" />
-      <entry key="S60" value="1.1422173455420461" />
-      <entry key="M2" value="2.0430458349654" />
-      <entry key="M5" value="3.842847428399779" />
-      <entry key="M10" value="5.8150265934173095" />
-      <entry key="M15" value="8.25663345951447" />
-      <entry key="M30" value="17.304708557237944" />
-      <entry key="H1" value="31.24661583513487" />
-      <entry key="H2" value="44.73433692808157" />
-      <entry key="H4" value="54.42984747828571" />
-      <entry key="D1" value="69.85383201852565" />
-      <entry key="W1" value="94.60558680250985" />
+      <entry key="MS100" value="1.0000118233270938" />
+      <entry key="MS500" value="1.1664949296678633" />
+      <entry key="S2" value="2.0696046596750497" />
+      <entry key="S5" value="2.591510072504553" />
+      <entry key="S10" value="3.021766913567367" />
+      <entry key="S30" value="3.9219456738285774" />
+      <entry key="S60" value="4.39975188439047" />
+      <entry key="M2" value="4.961028734051655" />
+      <entry key="M5" value="8.374869072131306" />
+      <entry key="M10" value="16.34890141829723" />
+      <entry key="M15" value="23.24186796083411" />
+      <entry key="M30" value="37.84235705152921" />
+      <entry key="H1" value="53.48077372843994" />
+      <entry key="H2" value="66.26884616362958" />
+      <entry key="H4" value="74.71983386287589" />
+      <entry key="D1" value="110.19665861226271" />
+      <entry key="W1" value="204.84576568852233" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.000000051888857" />
-      <entry key="MS500" value="1.034915382112115" />
-      <entry key="S2" value="1.4596155489442804" />
-      <entry key="S5" value="2.1508493569648857" />
-      <entry key="S10" value="3.2592452252356368" />
-      <entry key="S30" value="6.129175840609592" />
-      <entry key="S60" value="8.697955447868686" />
-      <entry key="M2" value="12.439189060476753" />
-      <entry key="M5" value="18.6882241917798" />
-      <entry key="M10" value="23.99472932246805" />
-      <entry key="M15" value="29.181527412197035" />
-      <entry key="M30" value="46.63567506539652" />
-      <entry key="H1" value="72.94689015232998" />
-      <entry key="H2" value="98.28998434163934" />
-      <entry key="H4" value="116.46954681990648" />
-      <entry key="D1" value="141.66688842120834" />
-      <entry key="W1" value="171.8442460084743" />
+      <entry key="MS100" value="2.484214057899881E-17" />
+      <entry key="MS500" value="5.237547394958627E-4" />
+      <entry key="S2" value="0.25251019318770684" />
+      <entry key="S5" value="1.0778972122593267" />
+      <entry key="S10" value="2.0508684576607914" />
+      <entry key="S30" value="4.155415199747231" />
+      <entry key="S60" value="5.442067285976008" />
+      <entry key="M2" value="7.610264703615371" />
+      <entry key="M5" value="18.695754361562393" />
+      <entry key="M10" value="36.69054078715094" />
+      <entry key="M15" value="50.32091428500436" />
+      <entry key="M30" value="77.61352449848279" />
+      <entry key="H1" value="105.69406636660356" />
+      <entry key="H2" value="128.03677366036098" />
+      <entry key="H4" value="142.55574926966403" />
+      <entry key="D1" value="201.49212991432674" />
+      <entry key="W1" value="350.35341011762176" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.006615197754980458" />
-      <entry key="MS500" value="0.371168153433624" />
-      <entry key="S2" value="1.059202318208428" />
-      <entry key="S5" value="1.8776762367896005" />
-      <entry key="S10" value="3.1228707186906335" />
-      <entry key="S30" value="6.534372922419523" />
-      <entry key="S60" value="9.714646293087242" />
-      <entry key="M2" value="14.379371905649533" />
-      <entry key="M5" value="22.46288103550901" />
-      <entry key="M10" value="29.76422605900738" />
-      <entry key="M15" value="37.40003499385265" />
-      <entry key="M30" value="63.90795181509377" />
-      <entry key="H1" value="104.16734072087273" />
-      <entry key="H2" value="143.0065371116711" />
-      <entry key="H4" value="170.8888386101138" />
-      <entry key="D1" value="211.5185579335221" />
-      <entry key="W1" value="266.44944456387935" />
+      <entry key="MS100" value="0.08021537994209066" />
+      <entry key="MS500" value="0.6896654551500239" />
+      <entry key="S2" value="1.9385146970381502" />
+      <entry key="S5" value="3.3355211780088903" />
+      <entry key="S10" value="4.772276967863429" />
+      <entry key="S30" value="7.861417234339023" />
+      <entry key="S60" value="9.699405915341119" />
+      <entry key="M2" value="12.477104169444251" />
+      <entry key="M5" value="26.98383797134876" />
+      <entry key="M10" value="52.949079960090245" />
+      <entry key="M15" value="73.47769761425913" />
+      <entry key="M30" value="115.38873576910257" />
+      <entry key="H1" value="159.12891595669328" />
+      <entry key="H2" value="194.277806153884" />
+      <entry key="H4" value="217.26010815679527" />
+      <entry key="D1" value="311.68526101033007" />
+      <entry key="W1" value="555.198331335297" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -206,7 +192,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/backend/repository/impl/AccountRepositoryImpl.java</url>
           <line>58</line>
-          <properties class="org.example.backend.repository.impl.AccountRepositoryImpl">
+          <properties class="org.example.backend.repository.impl.AccountRepositoryImpl" method="create">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
